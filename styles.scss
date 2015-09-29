@@ -1,0 +1,19 @@
+---
+---
+
+$primary: #cc0000;
+$size: 20px;
+
+@mixin border($radius){
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+
+}
+
+span{
+	@include border(10px);
+	color:$primary;
+	font-size: $size + 40;
+}
