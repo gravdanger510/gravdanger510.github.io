@@ -1,0 +1,73 @@
+---
+layout: default
+
+---
+<svg width="720" height="400">
+ 
+</svg>
+<button id="button">Switch</button>
+<script>
+	var counter = 0;
+	var dataArray = [
+		{"x": 40, "y": 60, "radius":10, "color": "red"},
+		{"x": 80, "y": 60, "radius":10, "color": "red"},
+		{"x": 120, "y": 60, "radius":10, "color": "red"},
+		{"x": 160, "y": 60, "radius":10, "color": "red"},
+		{"x": 190, "y": 60, "radius":10, "color": "red"},
+		{"x": 300, "y": 60, "radius":10, "color": "red"}
+	];
+	
+	var dataArray2 = [
+		{"x": 170, "y": 40, "radius":10, "color": "green"},
+		{"x": 170, "y": 80, "radius":10, "color": "green"},
+		{"x": 170, "y": 120, "radius":10, "color": "green"},
+		{"x": 170, "y": 160, "radius":10, "color": "green"},
+		{"x": 170, "y": 190, "radius":10, "color": "green"},
+		{"x": 170, "y": 300, "radius":10, "color": "green"}
+	];
+
+	function draw(data){
+		var circle = d3.select("svg").selectAll("circle")
+		.data(data);
+		
+		circle.enter().append("circle")
+				.attr("cy", 60)
+				.attr("r", 0);
+
+
+		circle.transition().duration(1000)	
+			.attr("r", 15)
+			.style("fill", "black")
+			.attr("cx", 170)
+			.attr("cy", 60)
+			.transition().duration(1000).delay(1000)	
+			.attr("r", 15)
+			.style("fill", function(d){
+				return d.color;
+			})
+			.attr("cx", function(d){
+				return d.x;
+			})
+			.attr("cy", function(d){
+				return d.y;
+			});
+
+			circle.exit().transition().duration(1000)
+				.remove();
+	}
+	draw(dataArray);
+
+	d3.select("#button").on("click", function(){
+		console.log(counter % 2);
+		if(counter % 2 == 0){
+			draw(dataArray2);
+		}else{
+			draw(dataArray);
+		}
+  		
+
+  		counter++
+	});
+
+	
+</script>
