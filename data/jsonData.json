@@ -1,0 +1,10 @@
+[
+
+	{"x": 40, "y": 60, "radius":10, "color": "red"},
+	{"x": 80, "y": 60, "radius":10, "color": "red"},
+	{"x": 120, "y": 60, "radius":10, "color": "red"},
+	{"x": 160, "y": 60, "radius":10, "color": "red"},
+	{"x": 190, "y": 60, "radius":10, "color": "red"},
+	{"x": 300, "y": 60, "radius":10, "color": "red"}
+
+]
