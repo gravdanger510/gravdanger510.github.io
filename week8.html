@@ -1,0 +1,92 @@
+---
+layout: default
+---
+
+<style type="text/css">
+	#controls{
+		background-color: grey;
+		position:absolute;
+		top:0;
+		bottom: 0;
+		width:200px;
+	}
+	svg{
+		background-color: green;
+		margin-left: 200px;
+	}
+
+</style>
+
+<div id="controls">
+	<select id="year_dropdown">
+		
+	</select>
+</div>
+<svg height = 500 width = 500></svg>
+
+<script type="text/javascript">
+	var raw_data = [],
+		year = false;
+	d3.csv("https://ashleyparis.github.io/data/Olympic.csv", function(error, data){
+
+		raw_data = data.filter(function(d){
+			return d.NOC === "SWE";
+		});
+
+		var years =[];
+		raw_data.forEach(function(d){
+			d.year = parseFloat(d.Edition);
+			if (years.indexOf(d.year) == -1){
+				years.push(d.year);
+			}
+		});
+		years.sort();
+		year = years[0];
+
+		d3.select("#year_dropdown").selectAll("option")
+			.data(years).enter().append("option")
+			.attr("value", function(d){
+				return d;
+			})
+			.text(function(d){
+				return d;
+			});
+
+		d3.select("#year_dropdown").on("change", function(){
+			year = years[this.selectedIndex];
+
+			draw();
+		})
+		draw();
+	});
+
+	function draw(){
+		var year_data = raw_data.filter(function (d){
+			return d.year === year;
+		});
+
+		var scale = d3.scale.linear()
+			.domain([0, 100])
+			.range([20, 250]);
+
+		var circle = d3.select("svg").selectAll("circle")
+			.data([year_data.length]);
+
+		circle.enter().append("circle")
+			.attr("r", 0)
+			.attr("cx", 250)
+			.attr("cy", 250);
+		circle.transition().duration(500)
+			.attr("r", function(d){
+				return scale(d);
+			});
+
+		circle.on("mouseover", function(d){
+			d3.select(this).attr('fill', "gray");
+		})
+		.on("mouseout", function(d){
+			d3.select(this).attr('fill', "black");
+		});
+	}
+
+</script>
