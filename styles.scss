@@ -4,16 +4,60 @@
 $primary: #cc0000;
 $size: 20px;
 
-@mixin border($radius){
-	border-radius: $radius;
-	-webkit-border-radius: $radius;
-	-moz-border-radius: $radius;
-	-ms-border-radius: $radius;
+html *{
+	padding:0;
+	margin:0;
+}
+body{
+	// background-image: url('map-background.jpg');
+	// background-position: 105px -48px;
+	// background-repeat:no-repeat;
+	// background-size:cover;
+}
 
+@mixin transitions(){
+  transition: all 0.7s ease 0.0s;
+    -moz-transition: all 0.7s ease 0.0s;
+    -webkit-transition: all 0.7s ease 0.0s;
+    -o-transition: all 0.7s ease 0.0s;
+    -ms-transition: all 0.7s ease 0.0s;
 }
 
 span{
-	@include border(10px);
 	color:$primary;
 	font-size: $size + 40;
+}
+
+.district{
+	@include transitions();
+
+	&:hover{
+		fill:#000;
+	}
+	&.faded{
+		opacity:.5
+	}
+
+}
+circle,
+path {
+  cursor: pointer;
+  pointer-events:all;
+}
+
+path.donutHole{
+  opacity: 1
+}
+path.donutHole:hover{
+  opacity: 1
+}
+svg, g{
+  pointer-events:none;
+}
+
+.district{
+ 
+}
+#district1{
+  fill:red;
 }
