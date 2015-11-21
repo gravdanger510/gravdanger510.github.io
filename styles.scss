@@ -8,10 +8,17 @@ html *{
 	padding:0;
 	margin:0;
 }
+html{
+// 	background: -webkit-linear-gradient(left, #ebebeb 52%, #c0d5e5 52%);
+// 	background: -o-linear-gradient(left, #ebebeb 52%, #c0d5e5 52%);
+// 	background: linear-gradient(to right, #ebebeb 52%, #c0d5e5 52%) ; /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
 body{
-	background-image: url('map-background.jpg');
-	background-position: 105px -48px;
-	background-repeat:no-repeat;
+	
+	background-image: url('map-background2.jpg');
+	// background-position: 105px -48px;
+	background-position: -665px -404px, center;
+	background-repeat:no-repeat; /* FF3.6-15 */
 	// background-size:cover;
 }
 
@@ -54,6 +61,7 @@ path.donutHole:hover{
 svg, g{
   pointer-events:none;
 }
+
 
 .district{
  
