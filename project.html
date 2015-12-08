@@ -35,7 +35,14 @@ d3.select('#slider').call(d3.slider().axis(true).min(2004).max(2014).step(1));
 for (var i = 0; i<paths.length; i++){
 	svg.append("path")
 		.attr("d", paths[i].d)
-		.attr("fill", "green")
+		.attr("fill", function(){
+			if(1/(i/3)<=1){
+				return "rgba(39, 140, 50," + 1/(i/3)+")";
+			}else{
+				return "rgba(39, 140, 50,.7 )";
+			}
+			
+		})
 		.classed("district", true)
 		.attr("id", paths[i].name)
 }
@@ -87,7 +94,7 @@ d3.select(district)
 	.attr("d", oldPath)
 	.transition().duration(durationTiming)
 	.attr("d", d1)
-	.attr("fill", "#FFF")
+	.attr("fill", "rgba(255,255,255,1)")
 	.attr("transform", "translate(" + distanceToCx + ", " + distanceToCy + ") scale("+sizeAdjustment+")")
 	;
 
@@ -224,7 +231,7 @@ d3.selectAll("path").on("click", function(){
 	drawCircle(this);
 });
 d3.select("#back").on("click", function(){
-	d3.select(".circled")
+	d3.select("path.circled")
 		.transition().delay(350)
 		.transition().duration(durationTiming)
 		.attr("d", oldPath)

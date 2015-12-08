@@ -61,9 +61,9 @@ span{
 .district{
 	@include transitions();
 	position:absolute;
-	z-index:-1;
+	z-index:69;
  	&.circled{
- 		z-index:69;
+ 		z-index:-1;
  	}
 
 	&:hover{
