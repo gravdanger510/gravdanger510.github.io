@@ -32,21 +32,21 @@ title: pumpkin pie
 		})
 		.attr("d", arc);
 	
-	// var airport_data = [
-	// 	{"country": "USA", "airport": 1},
-	// 	{"country": "USA", "airport": 2},
-	// 	{"country": "FRA", "airport": 3},
-	// 	{"country": "GER", "airport": 5},
-	// 	{"country": "GER", "airport": 12},
-	// 	{"country": "GER", "airport": 69},
-	// ];
+	var airport_data = [
+		{"country": "USA", "airport": 1},
+		{"country": "USA", "airport": 2},
+		{"country": "FRA", "airport": 3},
+		{"country": "GER", "airport": 5},
+		{"country": "GER", "airport": 12},
+		{"country": "GER", "airport": 69},
+	];
 
-	// var country_data = d3.nest()
-	// 	.key(function(d){
-	// 		return d.country;
-	// 	})
-	// 	.entries(airport_data);
+	var country_data = d3.nest()
+		.key(function(d){
+			return d.country;
+		})
+		.entries(airport_data);
 
-	// console.log(country_data);
+	console.log(country_data);
 
 </script>

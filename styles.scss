@@ -40,12 +40,24 @@ span{
 	color:$primary;
 	font-size: $size + 40;
 }
-#back{
+#title{
 	position:absolute;
 	cursor:pointer;
 	top:30px;
 	left:50px;
-	opacity:0;
+
+}
+#label{
+  width:200px;
+  height:60px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-left:-100px;
+  margin-top:-30px;
+  text-align:center;
+  opacity:0;
+
 }
 
 #overlay{
@@ -56,8 +68,12 @@ span{
 	right:0;
 	opacity:0;
 	background:rgba(255, 255, 255, .8);
-}
+  pointer-events:none;
 
+}
+.circled{
+  fill:rgba(255,255,255,1);
+}
 .district{
 	@include transitions();
 	position:absolute;
@@ -67,7 +83,7 @@ span{
  	}
 
 	&:hover{
-		fill:#000;
+		fill:rgba(255,255,255,1);
 	}
 	&.faded{
 		opacity:.5
