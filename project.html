@@ -70,7 +70,7 @@ d3.select('#slider')
 			console.log(value);
 	  		sliderValue = ""+value;
 	  		draw();
-	  		// decoratePie();
+	  		// decordatePie();
 		})
 	);
 
@@ -151,13 +151,11 @@ function drawCircle(district){
 			// console.log(pathSegList[i].pathSegTypeAsLetter);
 			newCoordinates.push([+pathSegList[i].x, +pathSegList[i].y]);
 		}
-
   }
-
 	var svg = d3.select("body").append("svg")
 		.attr("width", 950)
 		.attr("height", 500);
-
+i
 	var coordinates0 = newCoordinates,
 	  coordinates1 = circle(coordinates0),
 	  path = svg.append("path"),
