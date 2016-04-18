@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Minecraft Clock</title>
+
+  <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+  <!--[if IE]>
+      <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <![endif]-->
+
+  <script src="node_modules/suncalc/suncalc.js"></script>
+  </head>
+
+<body>
+	<div id="viewport">
+		<div id="clock" class="landscape">
+			<section id="day">
+				<span></span>
+			</section>
+			<section id="night">
+				<span></span>
+			</section>
+		</div>
+	</div>
+</body>
+<script>
+	var interval = 1000,
+	long = 42,
+	latt = 71,
+	clock = document.getElementById('clock'),
+	numSeconds = function(time){
+		return (time.getHours() * 3600) + (time.getMinutes() * 60) + time.getSeconds();
+	},
+	tick = function(){
+		//Here's where the magic happens
+		//Boston = 42, 71
+		
+		var nowSeconds = numSeconds(new Date());
+		sunSet = SunCalc.getTimes(new Date(), latt, long).sunset,
+		sunSetSeconds = numSeconds(sunSet),
+		r = ((180 * nowSeconds)/sunSetSeconds) - 90 ;
+		
+		// console.log(r);
+		clock.setAttribute("style", "transform:rotate(" + r+ "deg)");
+	};
+	tick();
+
+
+	window.setInterval(function(){
+		tick();
+	}, interval);	
+	
+
+
+</script>
+</html>
