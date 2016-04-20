@@ -75,9 +75,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   bottom: 0;
   left: 0;
   overflow: hidden;
+  font-size: 15px;
+  font-family: "Helvetica";
+  font-weight: 300;
 }
 
-/* line 12, ../sass/_clock.scss */
+/* line 15, ../sass/_clock.scss */
 #clock {
   position: relative;
   top: -50vh;
@@ -85,13 +88,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 300vw;
   height: 300vh;
 }
-/* line 20, ../sass/_clock.scss */
+/* line 23, ../sass/_clock.scss */
 #clock section {
   position: relative;
   width: 100%;
   height: 50%;
 }
-/* line 26, ../sass/_clock.scss */
+/* line 29, ../sass/_clock.scss */
 #clock section span {
   position: absolute;
   left: 50%;
@@ -102,25 +105,66 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   border-style: solid;
   border-radius: 50%;
 }
-/* line 40, ../sass/_clock.scss */
+/* line 43, ../sass/_clock.scss */
 #clock section#day {
   top: 0;
   background-color: #65C7E1;
 }
-/* line 45, ../sass/_clock.scss */
+/* line 48, ../sass/_clock.scss */
 #clock section#day span {
   bottom: 60vh;
   border-color: #c89a24;
   background-color: #eed419;
 }
-/* line 53, ../sass/_clock.scss */
+/* line 56, ../sass/_clock.scss */
 #clock section#night {
   bottom: 0;
   background-color: #313E70;
 }
-/* line 58, ../sass/_clock.scss */
+/* line 61, ../sass/_clock.scss */
 #clock section#night span {
   top: 60vh;
   border-color: #939786;
   background-color: #d4dabd;
+}
+
+/* line 1, ../sass/_info.scss */
+i.fa {
+  font-size: 1.5em;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 50px;
+  height: 20px;
+  cursor: pointer;
+  transform: translate(-50%, 0);
+  text-align: center;
+  opacity: .1;
+  color: #fff;
+  transition: .3s all;
+  -webkit-transition: .3s all;
+}
+/* line 20, ../sass/_info.scss */
+i.fa:hover {
+  opacity: 1;
+}
+
+/* line 25, ../sass/_info.scss */
+#info {
+  transition: .3s all;
+  -webkit-transition: .3s all;
+  position: absolute;
+  bottom: -200px;
+  left: 50%;
+  width: 90%;
+  max-width: 200px;
+  padding: 50px;
+  transform: translate(-50%, 0);
+  background-color: #1d1d1d;
+  color: #FFF;
+  z-index: 69;
+}
+/* line 43, ../sass/_info.scss */
+#info.open {
+  bottom: 17px;
 }

@@ -5,9 +5,7 @@
 
   <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
-  <!--[if IE]>
-      <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
-  <![endif]-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
   <script src="node_modules/suncalc/suncalc.js"></script>
   </head>
@@ -22,6 +20,14 @@
 				<span></span>
 			</section>
 		</div>
+
+		<article id="info">
+			<p>By <a href="http://tylerlmitchell.com" target="_blank">Tyler L Mitchell</a></p>
+			<p>Ft <a href="https://github.com/mourner/suncalc" target="_blank"> Suncalc</a></p>
+			<p><a href="https://github.com/gravdanger510/minecraft-clock" target="_blank">Fork Me!</a></p>
+			<i class="fa fa-times-circle-o"></i>
+		</article>
+		<i class="fa fa-info-circle"></i>
 	</div>
 </body>
 <script>
@@ -42,8 +48,23 @@
 		r = ((180 * nowSeconds)/sunSetSeconds) - 90 ;
 		
 		// console.log(r);
-		clock.setAttribute("style", "transform:rotate(" + r+ "deg)");
-	};
+		clock.setAttribute("style", "transform:rotate(" + r + "deg)");
+	},
+	icons = document.getElementsByClassName("fa"),
+	info = document.getElementById("info");
+
+	for(i = 0; i < icons.length; i++){
+
+		icons[i].addEventListener("click", function(){
+
+			if (info.classList.contains('open')) {
+				info.classList.remove("open");
+			}else{
+				info.classList.add("open");
+			}
+
+		});
+	}
 	tick();
 
 
