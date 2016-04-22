@@ -12,6 +12,7 @@
 
 <body>
 	<div id="viewport">
+		<h1 id="numbers"></h1>
 		<div id="clock" class="landscape">
 			<section id="day">
 				<span></span>
@@ -22,6 +23,7 @@
 		</div>
 
 		<article id="info">
+			<p onclick="toggleTime()">Toggle the real Time</p>
 			<p>By <a href="http://tylerlmitchell.com" target="_blank">Tyler L Mitchell</a></p>
 			<p>Ft <a href="https://github.com/mourner/suncalc" target="_blank"> Suncalc</a></p>
 			<p><a href="https://github.com/gravdanger510/minecraft-clock" target="_blank">Fork Me!</a></p>
@@ -30,8 +32,13 @@
 		<i class="fa fa-info-circle"></i>
 	</div>
 </body>
+
+
+
 <script>
-	var interval = 1000,
+	var currentTime = new Date(),
+	numbersClock = document.getElementById("numbers");
+	interval = 1000,
 	long = 42,
 	latt = 71,
 	clock = document.getElementById('clock'),
@@ -49,7 +56,52 @@
 		
 		// console.log(r);
 		clock.setAttribute("style", "transform:rotate(" + r + "deg)");
+
+		//Real Clock Stuff
+		if (!(new Date().getMinutes()===currentTime.getMinutes() )) {
+			currentTime = new Date();
+			setTime();
+		}
 	},
+	setTime = function(){
+		var timeString = "",
+		isAm = "AM",
+		hours = currentTime.getHours(),
+		minutes = currentTime.getMinutes();
+
+		//check if AM or PM
+		if (hours > 11) {
+			isAm = "PM";
+		}
+		//Make sure we're not in military time
+		if (hours > 12) {
+			hours -= 12;
+		}
+		//Add Zero?
+		if (hours < 10) {
+			timeString += "0" + hours + ":";
+		}else{
+			timeString += hours + ":";
+		}
+
+		//MINUTES
+		if (minutes < 10) {
+			timeString += "0" + minutes + "<span>" + isAm + "</span>";
+		}else{
+			timeString += minutes + "<span>" + isAm + "</span>";
+		}
+
+
+		numbersClock.innerHTML = timeString;
+	},
+	toggleTime = function(){
+
+		if (numbersClock.classList.contains('show')) {
+				numbersClock.classList.remove("show");
+			}else{
+				numbersClock.classList.add("show");
+			}
+	}
 	icons = document.getElementsByClassName("fa"),
 	info = document.getElementById("info");
 
@@ -65,6 +117,7 @@
 
 		});
 	}
+	setTime();
 	tick();
 
 

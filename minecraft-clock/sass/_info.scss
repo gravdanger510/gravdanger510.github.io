@@ -24,9 +24,9 @@ i.fa
 }
 #info
 {
-	@include transition();
     position: absolute;
-    bottom:-200px;
+    z-index: 69;
+    bottom: -200px;
     left: 50%;
 
     width: 90%;
@@ -35,12 +35,12 @@ i.fa
 
     transform: translate( -50%, 0 );
 
+    color: #fff;
     background-color: #1d1d1d;
 
-    color:#FFF;
-    z-index: 69;
-
-    &.open{
-    	bottom: 17px;
+    @include transition();
+    &.open
+    {
+        bottom: 17px;
     }
 }
