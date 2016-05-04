@@ -97,8 +97,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   pointer-events: none;
   opacity: 0;
   transform: translate(-50%, -50%);
-  transition: .3s all;
   -webkit-transition: .3s all;
+  transition: .3s all;
+  -moz-webkit-transition: .3s all;
 }
 /* line 40, ../sass/_clock.scss */
 #numbers.show {
@@ -171,8 +172,9 @@ i.fa {
   text-align: center;
   opacity: .1;
   color: #fff;
-  transition: .3s all;
   -webkit-transition: .3s all;
+  transition: .3s all;
+  -moz-webkit-transition: .3s all;
 }
 /* line 20, ../sass/_info.scss */
 i.fa:hover {
@@ -183,7 +185,7 @@ i.fa:hover {
 #info {
   position: absolute;
   z-index: 69;
-  bottom: -200px;
+  bottom: -220px;
   left: 50%;
   width: 90%;
   max-width: 200px;
@@ -191,10 +193,49 @@ i.fa:hover {
   transform: translate(-50%, 0);
   color: #fff;
   background-color: #1d1d1d;
-  transition: .3s all;
   -webkit-transition: .3s all;
+  transition: .3s all;
+  -moz-webkit-transition: .3s all;
 }
 /* line 42, ../sass/_info.scss */
 #info.open {
   bottom: 17px;
+}
+
+/* line 47, ../sass/_info.scss */
+.toggle {
+  position: relative;
+  float: right;
+  width: 30px;
+  height: 15px;
+  cursor: pointer;
+  border: 1px solid #FFF;
+  border-radius: 20px;
+  background-color: #000;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+  -moz-webkit-transition: .3s all;
+}
+/* line 63, ../sass/_info.scss */
+.toggle::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  content: '';
+  border-radius: 50%;
+  background-color: white;
+  -webkit-transition: .3s all;
+  transition: .3s all;
+  -moz-webkit-transition: .3s all;
+}
+/* line 79, ../sass/_info.scss */
+.toggle.on {
+  border-color: #74DE78;
+  background-color: #74DE78;
+}
+/* line 83, ../sass/_info.scss */
+.toggle.on::after {
+  left: 15px;
 }
