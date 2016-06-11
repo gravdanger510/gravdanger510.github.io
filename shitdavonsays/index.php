@@ -2,12 +2,22 @@
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-	<script src="html2canvas.js"></script>
 	<title>Davon once said:</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 	<link rel="stylesheet" href="global.css">
 
 	<!--Load Random Stylesheet from css directory -->
+	<?php
+		// $dir = 'css/*';
+		// $styles = array();
+		// foreach(glob($dir) as $file){
+		// 	if(!is_dir($file)){
+		// 		array_push($styles, $file);
+		// 	}
+		// }
+		// $rand =  rand(0, count($styles) - 1);
+		// echo '<link rel="stylesheet" type="text/css" href="' . $styles[$rand] . '">';
+	?>
 </head>
 <body>
 
